@@ -124,6 +124,7 @@ type Item struct {
 	Violation              bool   `json:"violation"`
 	WapDesc                string `json:"wap_desc"`
 	WapDetailURL           string `json:"wap_detail_url"`
+	MyDiscount             int    `json:"my_discount"`
 }
 
 type Trade struct {
