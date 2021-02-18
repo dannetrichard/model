@@ -21,6 +21,4 @@ func Migrate() {
 	defer db.Close()
 	db.Set("gorm:table_options", "ENGINE=InnoDB")
 	db.AutoMigrate(&User{}, &Refund{}, &Ship{}, &Cat{}, &Item{}, &Trade{}, &Order{})
-	db.Create(&Refund{RefundID: "101502290600487397", Status: "NEWHERE"})
-	db.Create(&User{Openid: "ocpij4ivTmwb1o_IrWbp912Y4cRE", WeChat: "fg2060", BuyerNick: "印霜设计"})
 }
