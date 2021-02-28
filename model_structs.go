@@ -70,7 +70,11 @@ type Cat struct {
 }
 
 type Item struct {
-	gorm.Model
+	ID        uint       `gorm:"primary_key" json:"id"`
+	CreatedAt time.Time  `json:"created_at"`
+	UpdatedAt time.Time  `json:"updated_at"`
+	DeletedAt *time.Time `json:"deleted_at"`
+
 	ApproveStatus          string `json:"approve_status"`
 	AuctionPoint           int    `json:"auction_point"`
 	Cid                    int    `json:"cid"`
