@@ -4,18 +4,14 @@ import (
 	"time"
 
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/jinzhu/gorm"
 )
 
-type Model struct {
+type User struct {
 	ID        uint       `gorm:"primary_key" json:"id"`
 	CreatedAt time.Time  `json:"created_at"`
 	UpdatedAt time.Time  `json:"updated_at"`
 	DeletedAt *time.Time `json:"deleted_at"`
-}
 
-type User struct {
-	gorm.Model
 	Openid     string `json:"openid" gorm:"unique"`
 	SessionKey string `json:"session_key"`
 	Unionid    string `json:"unionid"`
@@ -25,7 +21,11 @@ type User struct {
 }
 
 type Refund struct {
-	gorm.Model
+	ID        uint       `gorm:"primary_key" json:"id"`
+	CreatedAt time.Time  `json:"created_at"`
+	UpdatedAt time.Time  `json:"updated_at"`
+	DeletedAt *time.Time `json:"deleted_at"`
+
 	BuyerNick          string `json:"buyer_nick"`
 	Created            string `json:"created"`
 	Desc               string `json:"desc"`
@@ -54,13 +54,21 @@ type Refund struct {
 }
 
 type Ship struct {
-	gorm.Model
+	ID        uint       `gorm:"primary_key" json:"id"`
+	CreatedAt time.Time  `json:"created_at"`
+	UpdatedAt time.Time  `json:"updated_at"`
+	DeletedAt *time.Time `json:"deleted_at"`
+
 	CompanyName string `json:"company_name"`
 	Sid         string `json:"sid" gorm:"unique"`
 }
 
 type Cat struct {
-	gorm.Model
+	ID        uint       `gorm:"primary_key" json:"id"`
+	CreatedAt time.Time  `json:"created_at"`
+	UpdatedAt time.Time  `json:"updated_at"`
+	DeletedAt *time.Time `json:"deleted_at"`
+
 	Cid       int    `json:"cid"`
 	Name      string `json:"name"`
 	ParentCid int    `json:"parent_cid"`
@@ -132,7 +140,11 @@ type Item struct {
 }
 
 type Trade struct {
-	gorm.Model
+	ID        uint       `gorm:"primary_key" json:"id"`
+	CreatedAt time.Time  `json:"created_at"`
+	UpdatedAt time.Time  `json:"updated_at"`
+	DeletedAt *time.Time `json:"deleted_at"`
+
 	AdjustFee       string `json:"adjust_fee"`
 	BuyerNick       string `json:"buyer_nick"`
 	BuyerRate       bool   `json:"buyer_rate"`
@@ -155,7 +167,11 @@ type Trade struct {
 }
 
 type Order struct {
-	gorm.Model
+	ID        uint       `gorm:"primary_key" json:"id"`
+	CreatedAt time.Time  `json:"created_at"`
+	UpdatedAt time.Time  `json:"updated_at"`
+	DeletedAt *time.Time `json:"deleted_at"`
+
 	Tid               string `json:"tid"`
 	BuyerNick         string `json:"buyer_nick"`
 	RefundTime        string `json:"refund_time"`
