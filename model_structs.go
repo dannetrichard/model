@@ -180,13 +180,19 @@ type Order struct {
 	AdjustFee         string `json:"adjust_fee"`
 	BuyerRate         bool   `json:"buyer_rate"`
 	Cid               int    `json:"cid"`
+	ConsignTime       string `json:"consign_time"`
 	DiscountFee       string `json:"discount_fee"`
 	DivideOrderFee    string `json:"divide_order_fee"`
 	EndTime           string `json:"end_time"`
+	InvoiceNo         string `json:"invoice_no"`
 	IsDaixiao         bool   `json:"is_daixiao"`
+	IsOversold        bool   `json:"is_oversold"`
+	LogisticsCompany  string `json:"logistics_company"`
 	Num               int    `json:"num"`
 	NumIid            int64  `json:"num_iid"`
 	Oid               string `json:"oid" gorm:"unique"`
+	OidStr            string `json:"oid_str"`
+	OrderFrom         string `json:"order_from"`
 	Payment           string `json:"payment"`
 	PicPath           string `json:"pic_path"`
 	Price             string `json:"price"`
