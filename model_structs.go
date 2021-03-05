@@ -12,12 +12,14 @@ type User struct {
 	UpdatedAt time.Time  `json:"updated_at"`
 	DeletedAt *time.Time `json:"deleted_at"`
 
-	Openid     string `json:"openid" gorm:"unique"`
-	SessionKey string `json:"session_key"`
-	Unionid    string `json:"unionid"`
-	BuyerNick  string `json:"buyer_nick" gorm:"unique"`
-	WeChat     string `json:"we_chat" gorm:"unique"`
-	Level      int    `json:"level"`
+	Openid             string `json:"openid" gorm:"unique"`
+	SessionKey         string `json:"session_key"`
+	Unionid            string `json:"unionid"`
+	BuyerNick          string `json:"buyer_nick" gorm:"unique"`
+	WeChat             string `json:"we_chat" gorm:"unique"`
+	Level              int    `json:"level" gorm:"default:0"`
+	Coins              int    `json:"coins" gorm:"default:0"`
+	WeChatChangedTimes int    `json:"we_chat_changed_times" gorm:"default:0"`
 }
 
 type Refund struct {
