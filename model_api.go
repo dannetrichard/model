@@ -16,8 +16,8 @@ func Close() {
 }
 
 func Renew() {
-	DB.Init()
-	defer DB.Close()
+	Init()
+	defer Close()
 	DB.Set("gorm:table_options", "ENGINE=InnoDB")
 
 	DB.DropTableIfExists(&User{}, &Refund{}, &Ship{}, &Cat{}, &Item{}, &Trade{}, &Order{})
@@ -27,8 +27,8 @@ func Renew() {
 }
 
 func Migrate() {
-	DB.Init()
-	defer DB.Close()
+	Init()
+	defer Close()
 	DB.Set("gorm:table_options", "ENGINE=InnoDB")
 	DB.AutoMigrate(&User{}, &Refund{}, &Ship{}, &Cat{}, &Item{}, &Trade{}, &Order{})
 }
