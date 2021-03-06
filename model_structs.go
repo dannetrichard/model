@@ -217,7 +217,7 @@ type AdminUser struct {
 
 	Username      string `json:"username"`
 	Password      string `json:"password"`
-	Email         string `json:"email"`
+	Email         string `json:"email" gorm:"unique"`
 	AccessToken   string `json:"accessToken"`
 	RefreshToken  string `json:"refreshToken"`
 	Roles         string `json:"roles"`
