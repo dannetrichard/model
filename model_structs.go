@@ -220,7 +220,7 @@ type AdminUser struct {
 	Email         string `json:"email"`
 	AccessToken   string `json:"accessToken"`
 	RefreshToken  string `json:"refreshToken"`
-	Roles         []int  `json:"roles"`
+	Roles         string `json:"roles"`
 	Pic           string `json:"pic"`
 	Fullname      string `json:"fullname"`
 	Firstname     string `json:"firstname"`
