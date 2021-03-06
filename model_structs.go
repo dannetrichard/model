@@ -231,49 +231,4 @@ type AdminUser struct {
 	Language     string `json:"language"`
 	TimeZone     string `json:"timeZone"`
 	Website      string `json:"website"`
-	EmailSettings
-	Communication
-	Address
-	SocialNetworks
-}
-
-type EmailSettings struct {
-	EmailNotification       bool `json:"emailNotification"`
-	SendCopyToPersonalEmail bool `json:"sendCopyToPersonalEmail"`
-	ActivityRelatesEmail
-	UpdatesFromKeenthemes
-}
-
-type ActivityRelatesEmail struct {
-	YouHaveNewNotifications       bool `json:"youHaveNewNotifications"`
-	YouAreSentADirectMessage      bool `json:"youAreSentADirectMessage"`
-	SomeoneAddsYouAsAsAConnection bool `json:"someoneAddsYouAsAsAConnection"`
-	UponNewOrder                  bool `json:"uponNewOrder"`
-	NewMembershipApproval         bool `json:"newMembershipApproval"`
-	MemberRegistration            bool `json:"memberRegistration"`
-}
-type UpdatesFromKeenthemes struct {
-	NewsAboutKeenthemesProductsAndFeatureUpdates       bool `json:"newsAboutKeenthemesProductsAndFeatureUpdates"`
-	TipsOnGettingMoreOutOfKeen                         bool `json:"tipsOnGettingMoreOutOfKeen"`
-	ThingsYouMissedSindeYouLastLoggedIntoKeen          bool `json:"thingsYouMissedSindeYouLastLoggedIntoKeen"`
-	NewsAboutMetronicOnPartnerProductsAndOtherServices bool `json:"newsAboutMetronicOnPartnerProductsAndOtherServices"`
-	TipsOnMetronicBusinessProducts                     bool `json:"tipsOnMetronicBusinessProducts"`
-}
-
-type Communication struct {
-	Email bool `json:"email"`
-	Sms   bool `json:"sms"`
-	Phone bool `json:"phone"`
-}
-type Address struct {
-	AddressLine string `json:"addressLine"`
-	City        string `json:"city"`
-	State       string `json:"state"`
-	PostCode    string `json:"postCode"`
-}
-type SocialNetworks struct {
-	LinkedIn  string `json:"linkedIn"`
-	Facebook  string `json:"facebook"`
-	Twitter   string `json:"twitter"`
-	Instagram string `json:"instagram"`
 }
