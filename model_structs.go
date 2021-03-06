@@ -12,6 +12,14 @@ type User struct {
 	UpdatedAt time.Time  `json:"updated_at"`
 	DeletedAt *time.Time `json:"deleted_at"`
 
+	UserName string `json:"user_name"`
+	Email    string `json:"email"`
+	Password string `json:"password"`
+
+	AccessToken  string `json:"access_token"`
+	RefreshToken string `json:"refresh_token"`
+	ExpiresIn    string `json:"expires_in"`
+
 	Openid             string `json:"openid" gorm:"unique"`
 	SessionKey         string `json:"session_key"`
 	Unionid            string `json:"unionid"`
