@@ -215,56 +215,65 @@ type AdminUser struct {
 	UpdatedAt time.Time  `json:"updated_at"`
 	DeletedAt *time.Time `json:"deleted_at"`
 
-	Username      string `json:"username"`
-	Password      string `json:"password"`
-	Email         string `json:"email" gorm:"unique"`
-	AccessToken   string `json:"accessToken"`
-	RefreshToken  string `json:"refreshToken"`
-	Roles         string `json:"roles"`
-	Pic           string `json:"pic"`
-	Fullname      string `json:"fullname"`
-	Firstname     string `json:"firstname"`
-	Lastname      string `json:"lastname"`
-	Occupation    string `json:"occupation"`
-	CompanyName   string `json:"companyName"`
-	Phone         string `json:"phone"`
-	Language      string `json:"language"`
-	TimeZone      string `json:"timeZone"`
-	Website       string `json:"website"`
-	EmailSettings struct {
-		EmailNotification       bool `json:"emailNotification"`
-		SendCopyToPersonalEmail bool `json:"sendCopyToPersonalEmail"`
-		ActivityRelatesEmail    struct {
-			YouHaveNewNotifications       bool `json:"youHaveNewNotifications"`
-			YouAreSentADirectMessage      bool `json:"youAreSentADirectMessage"`
-			SomeoneAddsYouAsAsAConnection bool `json:"someoneAddsYouAsAsAConnection"`
-			UponNewOrder                  bool `json:"uponNewOrder"`
-			NewMembershipApproval         bool `json:"newMembershipApproval"`
-			MemberRegistration            bool `json:"memberRegistration"`
-		} `json:"activityRelatesEmail"`
-		UpdatesFromKeenthemes struct {
-			NewsAboutKeenthemesProductsAndFeatureUpdates       bool `json:"newsAboutKeenthemesProductsAndFeatureUpdates"`
-			TipsOnGettingMoreOutOfKeen                         bool `json:"tipsOnGettingMoreOutOfKeen"`
-			ThingsYouMissedSindeYouLastLoggedIntoKeen          bool `json:"thingsYouMissedSindeYouLastLoggedIntoKeen"`
-			NewsAboutMetronicOnPartnerProductsAndOtherServices bool `json:"newsAboutMetronicOnPartnerProductsAndOtherServices"`
-			TipsOnMetronicBusinessProducts                     bool `json:"tipsOnMetronicBusinessProducts"`
-		} `json:"updatesFromKeenthemes"`
-	} `json:"emailSettings" gorm:"embedded`
-	Communication struct {
-		Email bool `json:"email"`
-		Sms   bool `json:"sms"`
-		Phone bool `json:"phone"`
-	} `json:"communication" gorm:"embedded`
-	Address struct {
-		AddressLine string `json:"addressLine"`
-		City        string `json:"city"`
-		State       string `json:"state"`
-		PostCode    string `json:"postCode"`
-	} `json:"address" gorm:"embedded`
-	SocialNetworks struct {
-		LinkedIn  string `json:"linkedIn"`
-		Facebook  string `json:"facebook"`
-		Twitter   string `json:"twitter"`
-		Instagram string `json:"instagram"`
-	} `json:"socialNetworks" gorm:"embedded`
+	Username       string `json:"username"`
+	Password       string `json:"password"`
+	Email          string `json:"email" gorm:"unique"`
+	AccessToken    string `json:"accessToken"`
+	RefreshToken   string `json:"refreshToken"`
+	Roles          string `json:"roles"`
+	Pic            string `json:"pic"`
+	Fullname       string `json:"fullname"`
+	Firstname      string `json:"firstname"`
+	Lastname       string `json:"lastname"`
+	Occupation     string `json:"occupation"`
+	CompanyName    string `json:"companyName"`
+	Phone          string `json:"phone"`
+	Language       string `json:"language"`
+	TimeZone       string `json:"timeZone"`
+	Website        string `json:"website"`
+	EmailSettings  `json:"emailSettings" gorm:"embedded`
+	Communication  `json:"communication" gorm:"embedded`
+	Address        `json:"address" gorm:"embedded`
+	SocialNetworks `json:"socialNetworks" gorm:"embedded`
+}
+
+type EmailSettings struct {
+	EmailNotification       bool `json:"emailNotification"`
+	SendCopyToPersonalEmail bool `json:"sendCopyToPersonalEmail"`
+	ActivityRelatesEmail    `json:"activityRelatesEmail" gorm:"embedded`
+	UpdatesFromKeenthemes   `json:"updatesFromKeenthemes" gorm:"embedded`
+}
+
+type ActivityRelatesEmail struct {
+	YouHaveNewNotifications       bool `json:"youHaveNewNotifications"`
+	YouAreSentADirectMessage      bool `json:"youAreSentADirectMessage"`
+	SomeoneAddsYouAsAsAConnection bool `json:"someoneAddsYouAsAsAConnection"`
+	UponNewOrder                  bool `json:"uponNewOrder"`
+	NewMembershipApproval         bool `json:"newMembershipApproval"`
+	MemberRegistration            bool `json:"memberRegistration"`
+}
+type UpdatesFromKeenthemes struct {
+	NewsAboutKeenthemesProductsAndFeatureUpdates       bool `json:"newsAboutKeenthemesProductsAndFeatureUpdates"`
+	TipsOnGettingMoreOutOfKeen                         bool `json:"tipsOnGettingMoreOutOfKeen"`
+	ThingsYouMissedSindeYouLastLoggedIntoKeen          bool `json:"thingsYouMissedSindeYouLastLoggedIntoKeen"`
+	NewsAboutMetronicOnPartnerProductsAndOtherServices bool `json:"newsAboutMetronicOnPartnerProductsAndOtherServices"`
+	TipsOnMetronicBusinessProducts                     bool `json:"tipsOnMetronicBusinessProducts"`
+}
+
+type Communication struct {
+	Email bool `json:"email"`
+	Sms   bool `json:"sms"`
+	Phone bool `json:"phone"`
+}
+type Address struct {
+	AddressLine string `json:"addressLine"`
+	City        string `json:"city"`
+	State       string `json:"state"`
+	PostCode    string `json:"postCode"`
+}
+type SocialNetworks struct {
+	LinkedIn  string `json:"linkedIn"`
+	Facebook  string `json:"facebook"`
+	Twitter   string `json:"twitter"`
+	Instagram string `json:"instagram"`
 }
