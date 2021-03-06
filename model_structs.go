@@ -16,9 +16,9 @@ type User struct {
 	Email    string `json:"email"`
 	Password string `json:"password"`
 
-	AccessToken  string `json:"access_token"`
-	RefreshToken string `json:"refresh_token"`
-	ExpiresIn    string `json:"expires_in"`
+	AccessToken  string    `json:"access_token"`
+	RefreshToken string    `json:"refresh_token"`
+	ExpiresIn    time.Time `json:"expires_in"`
 
 	Openid             string `json:"openid" gorm:"unique"`
 	SessionKey         string `json:"session_key"`
