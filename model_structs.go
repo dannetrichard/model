@@ -13,7 +13,7 @@ type User struct {
 	DeletedAt *time.Time `json:"deleted_at"`
 
 	UserName string `json:"user_name"`
-	Email    string `json:"email"`
+	Email    string `json:"email" gorm:"unique"`
 	Password string `json:"password"`
 
 	AccessToken  string    `json:"access_token"`
