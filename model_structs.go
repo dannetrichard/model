@@ -215,33 +215,33 @@ type AdminUser struct {
 	UpdatedAt time.Time  `json:"updated_at"`
 	DeletedAt *time.Time `json:"deleted_at"`
 
-	Username       string `json:"username"`
-	Password       string `json:"password"`
-	Email          string `json:"email" gorm:"unique"`
-	AccessToken    string `json:"accessToken"`
-	RefreshToken   string `json:"refreshToken"`
-	Roles          string `json:"roles"`
-	Pic            string `json:"pic"`
-	Fullname       string `json:"fullname"`
-	Firstname      string `json:"firstname"`
-	Lastname       string `json:"lastname"`
-	Occupation     string `json:"occupation"`
-	CompanyName    string `json:"companyName"`
-	Phone          string `json:"phone"`
-	Language       string `json:"language"`
-	TimeZone       string `json:"timeZone"`
-	Website        string `json:"website"`
-	EmailSettings  `json:"emailSettings" gorm:"embedded`
-	Communication  `json:"communication" gorm:"embedded`
-	Address        `json:"address" gorm:"embedded`
-	SocialNetworks `json:"socialNetworks" gorm:"embedded`
+	Username     string `json:"username"`
+	Password     string `json:"password"`
+	Email        string `json:"email" gorm:"unique"`
+	AccessToken  string `json:"accessToken"`
+	RefreshToken string `json:"refreshToken"`
+	Roles        string `json:"roles"`
+	Pic          string `json:"pic"`
+	Fullname     string `json:"fullname"`
+	Firstname    string `json:"firstname"`
+	Lastname     string `json:"lastname"`
+	Occupation   string `json:"occupation"`
+	CompanyName  string `json:"companyName"`
+	Phone        string `json:"phone"`
+	Language     string `json:"language"`
+	TimeZone     string `json:"timeZone"`
+	Website      string `json:"website"`
+	EmailSettings
+	Communication
+	Address
+	SocialNetworks
 }
 
 type EmailSettings struct {
 	EmailNotification       bool `json:"emailNotification"`
 	SendCopyToPersonalEmail bool `json:"sendCopyToPersonalEmail"`
-	ActivityRelatesEmail    `json:"activityRelatesEmail" gorm:"embedded`
-	UpdatesFromKeenthemes   `json:"updatesFromKeenthemes" gorm:"embedded`
+	ActivityRelatesEmail
+	UpdatesFromKeenthemes
 }
 
 type ActivityRelatesEmail struct {
