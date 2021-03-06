@@ -12,14 +12,6 @@ type User struct {
 	UpdatedAt time.Time  `json:"updated_at"`
 	DeletedAt *time.Time `json:"deleted_at"`
 
-	UserName string `json:"user_name"`
-	Email    string `json:"email" gorm:"unique"`
-	Password string `json:"password"`
-
-	AccessToken  string    `json:"access_token"`
-	RefreshToken string    `json:"refresh_token"`
-	ExpiresIn    time.Time `json:"expires_in"`
-
 	Openid             string `json:"openid" gorm:"unique"`
 	SessionKey         string `json:"session_key"`
 	Unionid            string `json:"unionid"`
@@ -28,6 +20,21 @@ type User struct {
 	Level              int    `json:"level" gorm:"default:0"`
 	Coins              int    `json:"coins" gorm:"default:0"`
 	WeChatChangedTimes int    `json:"we_chat_changed_times" gorm:"default:0"`
+}
+
+type AdminUser struct {
+	ID        uint       `gorm:"primary_key" json:"id"`
+	CreatedAt time.Time  `json:"created_at"`
+	UpdatedAt time.Time  `json:"updated_at"`
+	DeletedAt *time.Time `json:"deleted_at"`
+
+	UserName string `json:"user_name"`
+	Email    string `json:"email" gorm:"unique"`
+	Password string `json:"password"`
+
+	AccessToken  string    `json:"access_token"`
+	RefreshToken string    `json:"refresh_token"`
+	ExpiresIn    time.Time `json:"expires_in"`
 }
 
 type Refund struct {
